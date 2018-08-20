@@ -19,9 +19,19 @@
 # governing permissions and limitations under the License.
 
 import sys
-from http.server import BaseHTTPRequestHandler, HTTPServer
-from urllib.parse import urlparse, parse_qs
+
+try:
+    import BaseHTTPServer, SimpleHTTPServer
+except Exception:
+    from http.server import BaseHTTPRequestHandler, HTTPServer
+
+try:
+    from urlparse import urlparse, parse_qs
+except Exception:
+    from urllib.parse import urlparse, parse_qs
+
 from os import curdir, sep
+
 from adp_connection.lib import *
 from adp_connection import __version__
 
