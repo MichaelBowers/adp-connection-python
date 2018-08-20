@@ -18,7 +18,7 @@
 # express or implied.  See the License for the specific language
 # governing permissions and limitations under the License.
 
-from connectionconfiguration import *
-from adpapiconnection import *
-from connectexceptions import *
-from adpapiconnectionfactory import *
+from adp_connection.lib.connectionconfiguration import *
+from adp_connection.lib.adpapiconnection import *
+from adp_connection.lib.connectexceptions import *
+from adp_connection.lib.adpapiconnectionfactory import *

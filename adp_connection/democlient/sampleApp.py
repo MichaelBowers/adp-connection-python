@@ -19,8 +19,8 @@
 # governing permissions and limitations under the License.
 
 import sys
-from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
-from urlparse import urlparse, parse_qs
+from http.server import BaseHTTPRequestHandler, HTTPServer
+from urllib.parse import urlparse, parse_qs
 from os import curdir, sep
 from adp_connection.lib import *
 from adp_connection import __version__
@@ -96,7 +96,7 @@ class httpHandler(BaseHTTPRequestHandler):
                     else:
                         resp = '<b>Not Connected!</b>'
                 except ConfigError as conferr:
-                    print conferr.msg
+                    print(conferr.msg)
                 except ConnectError as connecterr:
                     resp = '<b>Connection Error</b>'
                     resp = resp + '<br>Class: ' + connecterr.cname
@@ -161,10 +161,10 @@ class httpHandler(BaseHTTPRequestHandler):
                     self.end_headers()
                     return
                 except ConfigError as conferr:
-                    print conferr.msg
+                    print(conferr.msg)
                     raise
                 except ConnectError as connecterr:
-                    print connecterr.msg
+                    print(connecterr.msg)
                     raise
 
             # Handle the callback request after a login attempt for an
@@ -217,7 +217,7 @@ class httpHandler(BaseHTTPRequestHandler):
                     resp = resp + '<br>Error Message: ' + connecterr.msg
                     resp = resp + '<br>API Class: ' + connecterr.cname
                 except:
-                    print "Unexpected error:", str(sys.exc_info())
+                    print("Unexpected error:", str(sys.exc_info()))
                 finally:
                     self.send_response(200)
                     self.send_header('Content-type', 'text/html')
@@ -262,11 +262,11 @@ try:
     # Create a web server and define the handler to manage the
     # incoming request
     server = HTTPServer(('', PORT_NUMBER), httpHandler)
-    print 'adp-connection-python version ' + __version__ + ' started httpserver on port ', PORT_NUMBER
+    print('adp-connection-python version ' + __version__ + ' started httpserver on port ', PORT_NUMBER)
 
     # Wait forever for incoming htto requests
     server.serve_forever()
 
 except KeyboardInterrupt:
-    print '^C received, shutting down the web server'
+    print('^C received, shutting down the web server')
     server.socket.close()
