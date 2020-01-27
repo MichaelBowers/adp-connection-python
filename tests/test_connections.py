@@ -31,9 +31,9 @@ class ClientCredentialsTestCase(TestCase):
         config['clientSecret'] = 'a130adb7-aa51-49ac-9d02-0d4036b63541'
         config['sslCertPath'] = 'tests_certs/cert.pem'
         config['sslKeyPath'] = 'tests_certs/cert.key'
-        config['tokenServerURL'] = 'https://iat-api.adp.com/auth/oauth/v2/token'
-        config['disconnectURL'] = 'https://iat-accounts.adp.com/auth/oauth/v2/logout'
-        config['apiRequestURL'] = 'https://iat-api.adp.com'
+        config['tokenServerURL'] = 'https://api.adp.com/auth/oauth/v2/token'
+        config['disconnectURL'] = 'https://accounts.adp.com/auth/oauth/v2/logout'
+        config['apiRequestURL'] = 'https://api.adp.com'
         config['grantType'] = 'client_credentials'
 
         try:
@@ -50,8 +50,8 @@ class ClientCredentialsTestCase(TestCase):
 
         ccConnection.connect()
 
-        expect(ClientCredentialsConfiguration.getApiRequestURL()).to_equal('https://iat-api.adp.com')
-        expect(ClientCredentialsConfiguration.getDisconnectURL()).to_equal('https://iat-accounts.adp.com/auth/oauth/v2/logout')
+        expect(ClientCredentialsConfiguration.getApiRequestURL()).to_equal('https://api.adp.com')
+        expect(ClientCredentialsConfiguration.getDisconnectURL()).to_equal('https://accounts.adp.com/auth/oauth/v2/logout')
         expect(ccConnection.isConnectedIndicator()).to_be_true()
 
     def test_cc_configErr_missing_clientID(self):
@@ -110,7 +110,7 @@ class ClientCredentialsTestCase(TestCase):
         config['clientSecret'] = 'fbce97f8-5d3a-42cc-a774-9126c5270625'
         config['sslCertPath'] = 'tests_certs/cert.pem'
         config['sslKeyPath'] = 'tests_certs/cert.key'
-        config['tokenServerURL'] = 'https://iat-api.adp.com/auth/oauth/v2/token'
+        config['tokenServerURL'] = 'https://api.adp.com/auth/oauth/v2/token'
 
         try:
             ConnectionConfiguration().init(config)
@@ -123,8 +123,8 @@ class ClientCredentialsTestCase(TestCase):
         config['clientSecret'] = 'fbce97f8-5d3a-42cc-a774-9126c5270625'
         config['sslCertPath'] = 'tests_certs/cert.pem'
         config['sslKeyPath'] = 'tests_certs/cert.key'
-        config['tokenServerURL'] = 'https://iat-api.adp.com/auth/oauth/v2/token'
-        config['disconnectURL'] = 'https://iat-accounts.adp.com/auth/oauth/v2/logout'
+        config['tokenServerURL'] = 'https://api.adp.com/auth/oauth/v2/token'
+        config['disconnectURL'] = 'https://accounts.adp.com/auth/oauth/v2/logout'
 
         try:
             ConnectionConfiguration().init(config)
@@ -137,9 +137,9 @@ class ClientCredentialsTestCase(TestCase):
         config['clientSecret'] = 'fbce97f8-5d3a-42cc-a774-9126c5270625'
         config['sslCertPath'] = 'tests_certs/cert.pem'
         config['sslKeyPath'] = 'tests_certs/cert.key'
-        config['tokenServerURL'] = 'https://iat-api.adp.com/auth/oauth/v2/token'
-        config['disconnectURL'] = 'https://iat-accounts.adp.com/auth/oauth/v2/logout'
-        config['apiRequestURL'] = 'https://iat-api.adp.com'
+        config['tokenServerURL'] = 'https://api.adp.com/auth/oauth/v2/token'
+        config['disconnectURL'] = 'https://accounts.adp.com/auth/oauth/v2/logout'
+        config['apiRequestURL'] = 'https://api.adp.com'
 
         try:
             ConnectionConfiguration().init(config)
@@ -152,9 +152,9 @@ class ClientCredentialsTestCase(TestCase):
         config['clientSecret'] = 'fbce97f8-5d3a-42cc-a774-9126c5270625'
         config['sslCertPath'] = 'tests_certs/cert.pem'
         config['sslKeyPath'] = 'tests_certs/cert.key'
-        config['tokenServerURL'] = 'https://iat-api.adp.com/auth/oauth/v2/token'
-        config['disconnectURL'] = 'https://iat-accounts.adp.com/auth/oauth/v2/logout'
-        config['apiRequestURL'] = 'https://iat-api.adp.com'
+        config['tokenServerURL'] = 'https://api.adp.com/auth/oauth/v2/token'
+        config['disconnectURL'] = 'https://accounts.adp.com/auth/oauth/v2/logout'
+        config['apiRequestURL'] = 'https://api.adp.com'
         config['grantType'] = 'badgrantType'
 
         try:
@@ -170,12 +170,12 @@ class AuthorizationTestCase(TestCase):
         config['clientSecret'] = 'fbce97f8-5d3a-42cc-a774-9126c5270625'
         config['sslCertPath'] = 'tests_certs/cert.pem'
         config['sslKeyPath'] = 'tests_certs/cert.key'
-        config['tokenServerURL'] = 'https://iat-api.adp.com/auth/oauth/v2/token'
-        config['disconnectURL'] = 'https://iat-accounts.adp.com/auth/oauth/v2/logout'
-        config['apiRequestURL'] = 'https://iat-api.adp.com'
+        config['tokenServerURL'] = 'https://api.adp.com/auth/oauth/v2/token'
+        config['disconnectURL'] = 'https://accounts.adp.com/auth/oauth/v2/logout'
+        config['apiRequestURL'] = 'https://api.adp.com'
         config['grantType'] = 'authorization_code'
-        config['baseAuthorizationURL'] = 'https://iat-accounts.adp.com/auth/oauth/v2/authorize'
-        config['disconnectURL'] = 'https://iat-accounts.adp.com/auth/oauth/v2/logout'
+        config['baseAuthorizationURL'] = 'https://accounts.adp.com/auth/oauth/v2/authorize'
+        config['disconnectURL'] = 'https://accounts.adp.com/auth/oauth/v2/logout'
         config['redirectURL'] = 'http://localhost:8889/callback'
         config['responseType'] = 'code'
         config['scope'] = 'openid'
@@ -215,9 +215,9 @@ class AuthorizationTestCase(TestCase):
         config['clientSecret'] = 'fbce97f8-5d3a-42cc-a774-9126c5270625'
         config['sslCertPath'] = 'tests_certs/cert.pem'
         config['sslKeyPath'] = 'tests_certs/cert.key'
-        config['tokenServerURL'] = 'https://iat-api.adp.com/auth/oauth/v2/token'
-        config['disconnectURL'] = 'https://iat-accounts.adp.com/auth/oauth/v2/logout'
-        config['apiRequestURL'] = 'https://iat-api.adp.com'
+        config['tokenServerURL'] = 'https://api.adp.com/auth/oauth/v2/token'
+        config['disconnectURL'] = 'https://accounts.adp.com/auth/oauth/v2/logout'
+        config['apiRequestURL'] = 'https://api.adp.com'
         config['grantType'] = 'authorization_code'
 
         try:
@@ -231,11 +231,11 @@ class AuthorizationTestCase(TestCase):
         config['clientSecret'] = 'fbce97f8-5d3a-42cc-a774-9126c5270625'
         config['sslCertPath'] = 'tests_certs/cert.pem'
         config['sslKeyPath'] = 'tests_certs/cert.key'
-        config['tokenServerURL'] = 'https://iat-api.adp.com/auth/oauth/v2/token'
-        config['disconnectURL'] = 'https://iat-accounts.adp.com/auth/oauth/v2/logout'
-        config['apiRequestURL'] = 'https://iat-api.adp.com'
+        config['tokenServerURL'] = 'https://api.adp.com/auth/oauth/v2/token'
+        config['disconnectURL'] = 'https://accounts.adp.com/auth/oauth/v2/logout'
+        config['apiRequestURL'] = 'https://api.adp.com'
         config['grantType'] = 'authorization_code'
-        config['baseAuthorizationURL'] = 'https://iat-accounts.adp.com/auth/oauth/v2/authorize'
+        config['baseAuthorizationURL'] = 'https://accounts.adp.com/auth/oauth/v2/authorize'
 
         try:
             ConnectionConfiguration().init(config)
@@ -248,11 +248,11 @@ class AuthorizationTestCase(TestCase):
         config['clientSecret'] = 'fbce97f8-5d3a-42cc-a774-9126c5270625'
         config['sslCertPath'] = 'tests_certs/cert.pem'
         config['sslKeyPath'] = 'tests_certs/cert.key'
-        config['tokenServerURL'] = 'https://iat-api.adp.com/auth/oauth/v2/token'
-        config['disconnectURL'] = 'https://iat-accounts.adp.com/auth/oauth/v2/logout'
-        config['apiRequestURL'] = 'https://iat-api.adp.com'
+        config['tokenServerURL'] = 'https://api.adp.com/auth/oauth/v2/token'
+        config['disconnectURL'] = 'https://accounts.adp.com/auth/oauth/v2/logout'
+        config['apiRequestURL'] = 'https://api.adp.com'
         config['grantType'] = 'authorization_code'
-        config['baseAuthorizationURL'] = 'https://iat-accounts.adp.com/auth/oauth/v2/authorize'
+        config['baseAuthorizationURL'] = 'https://accounts.adp.com/auth/oauth/v2/authorize'
         config['redirectURL'] = 'http://localhost:8889/callback'
 
         try:
@@ -266,11 +266,11 @@ class AuthorizationTestCase(TestCase):
         config['clientSecret'] = 'fbce97f8-5d3a-42cc-a774-9126c5270625'
         config['sslCertPath'] = 'tests_certs/cert.pem'
         config['sslKeyPath'] = 'tests_certs/cert.key'
-        config['tokenServerURL'] = 'https://iat-api.adp.com/auth/oauth/v2/token'
-        config['disconnectURL'] = 'https://iat-accounts.adp.com/auth/oauth/v2/logout'
-        config['apiRequestURL'] = 'https://iat-api.adp.com'
+        config['tokenServerURL'] = 'https://api.adp.com/auth/oauth/v2/token'
+        config['disconnectURL'] = 'https://accounts.adp.com/auth/oauth/v2/logout'
+        config['apiRequestURL'] = 'https://api.adp.com'
         config['grantType'] = 'authorization_code'
-        config['baseAuthorizationURL'] = 'https://iat-accounts.adp.com/auth/oauth/v2/authorize'
+        config['baseAuthorizationURL'] = 'https://accounts.adp.com/auth/oauth/v2/authorize'
         config['redirectURL'] = 'http://localhost:8889/callback'
         config['responseType'] = 'codex1234'
 
@@ -285,11 +285,11 @@ class AuthorizationTestCase(TestCase):
         config['clientSecret'] = 'fbce97f8-5d3a-42cc-a774-9126c5270625'
         config['sslCertPath'] = 'tests_certs/cert.pem'
         config['sslKeyPath'] = 'tests_certs/cert.key'
-        config['tokenServerURL'] = 'https://iat-api.adp.com/auth/oauth/v2/token'
-        config['disconnectURL'] = 'https://iat-accounts.adp.com/auth/oauth/v2/logout'
-        config['apiRequestURL'] = 'https://iat-api.adp.com'
+        config['tokenServerURL'] = 'https://api.adp.com/auth/oauth/v2/token'
+        config['disconnectURL'] = 'https://accounts.adp.com/auth/oauth/v2/logout'
+        config['apiRequestURL'] = 'https://api.adp.com'
         config['grantType'] = 'authorization_code'
-        config['baseAuthorizationURL'] = 'https://iat-accounts.adp.com/auth/oauth/v2/authorize'
+        config['baseAuthorizationURL'] = 'https://accounts.adp.com/auth/oauth/v2/authorize'
         config['redirectURL'] = 'http://localhost:8889/callback'
         config['responseType'] = 'code'
 
@@ -304,11 +304,11 @@ class AuthorizationTestCase(TestCase):
         config['clientSecret'] = 'fbce97f8-5d3a-42cc-a774-9126c5270625'
         config['sslCertPath'] = 'tests_certs/cert.pem'
         config['sslKeyPath'] = 'tests_certs/cert.key'
-        config['tokenServerURL'] = 'https://iat-api.adp.com/auth/oauth/v2/token'
-        config['disconnectURL'] = 'https://iat-accounts.adp.com/auth/oauth/v2/logout'
-        config['apiRequestURL'] = 'https://iat-api.adp.com'
+        config['tokenServerURL'] = 'https://api.adp.com/auth/oauth/v2/token'
+        config['disconnectURL'] = 'https://accounts.adp.com/auth/oauth/v2/logout'
+        config['apiRequestURL'] = 'https://api.adp.com'
         config['grantType'] = 'authorization_code'
-        config['baseAuthorizationURL'] = 'https://iat-accounts.adp.com/auth/oauth/v2/authorize'
+        config['baseAuthorizationURL'] = 'https://accounts.adp.com/auth/oauth/v2/authorize'
         config['redirectURL'] = 'http://localhost:8889/callback'
         config['responseType'] = 'code'
         config['scope'] = 'openid121212'

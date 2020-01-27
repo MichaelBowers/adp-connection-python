@@ -110,7 +110,7 @@ class ADPAPIConnection(object):
         """ Sends a logout request to ADP if an access-token is present
         and resets the connection instance variable for the connection """
         if self.getAccessToken() != '':
-            headers = {'user-agent': self.userAgent}            
+            headers = {'user-agent': self.userAgent}
             r = requests.get(self.getConfig().getDisconnectURL() + '?id_token_hint=' + self.getAccessToken(),
                              headers=(headers))
             logging.debug(r.status_code)
