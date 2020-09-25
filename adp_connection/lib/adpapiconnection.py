@@ -96,7 +96,6 @@ class ADPAPIConnection(object):
                                     self.getConfig().getClientSecret()),
                               data=(formData))
             logging.debug(r.status_code)
-            logging.debug(r.json())
             if (r.status_code == requests.codes.ok):
                 self.connection['status'] = 'connected'
                 self.connection['token'] = r.json()['access_token']
