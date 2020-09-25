@@ -189,8 +189,7 @@ class AuthorizationCodeConnection(ADPAPIConnection):
                           headers=(headers),
                           cert=(self.getConfig().getSSLCertPath(),
                                 self.getConfig().getSSLKeyPath()),
-                          data=(formData),
-                          verify=(self.getConfig().getSSLCertPath()))
+                          data=(formData))
         logging.debug(r.status_code)
         logging.debug(r.json())
         if (r.status_code == requests.codes.ok):
